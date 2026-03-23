@@ -238,7 +238,7 @@
 
     .hero-name {
       font-family: var(--font-head);
-      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-size: clamp(2.8rem, 8vw, 6rem);
       font-weight: 800;
       line-height: 1.0;
       letter-spacing: -0.04em;
@@ -873,9 +873,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       max-width: 900px;
       margin: 0 auto;
+      position: relative;
     }
 
     .slider-btn {
@@ -936,10 +937,10 @@
     .cert-image {
       width: 100%;
       max-width: 700px;
-      height: 300px;
+      height: 250px;
       object-fit: contain;
       border-radius: 8px;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       background: rgba(0, 0, 0, 0.2);
     }
 
@@ -1217,14 +1218,39 @@
       transform: translateY(0);
     }
 
-    /* MOBILE */
+    /* MOBILE AND RESPONSIVE */
     @media (max-width:900px) {
       nav {
         padding: 1rem 1.5rem;
       }
 
       .nav-links {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.95);
+        backdrop-filter: blur(16px);
+        border-top: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        display: flex;
+        overflow-x: auto;
+        gap: 1.5rem;
+        z-index: 100;
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      
+      .nav-links::-webkit-scrollbar {
         display: none;
+      }
+
+      .nav-links a {
+        white-space: nowrap;
+      }
+
+      body {
+        padding-bottom: 4rem; /* For bottom bar */
       }
 
       #hero {
@@ -1236,7 +1262,14 @@
       }
 
       .hero-avatar-wrap {
-        display: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+      }
+
+      .avatar-frame {
+        width: 280px;
+        height: 320px;
       }
 
       .section-container {
@@ -1279,6 +1312,88 @@
 
       .form-row {
         grid-template-columns: 1fr;
+      }
+    }
+
+    /* SMALL PHONES */
+    @media (max-width:600px) {
+      .avatar-frame {
+        width: 240px;
+        height: 280px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-cta a {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .cert-slider {
+        padding: 0 1rem;
+      }
+
+      .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      #cert-prev {
+        left: 0;
+      }
+
+      #cert-next {
+        right: 0;
+      }
+
+      .slider-content {
+        min-height: 480px;
+        padding: 1.5rem 1rem;
+      }
+
+      .training-card {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .training-icon {
+        margin: 0 auto;
+      }
+
+      .training-points li {
+        text-align: left;
+      }
+
+      .achieve-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+
+      .project-card {
+        padding: 1.5rem;
+      }
+      
+      .project-image-container {
+        margin: -1.5rem -1.5rem 1.5rem;
+        height: 180px;
+      }
+      
+      .contact-link {
+        padding: 1rem;
       }
     }
   </style>
@@ -1626,9 +1741,8 @@
         <div class="achieve-card">
           <div class="achieve-icon">🏆</div>
           <div class="achieve-content">
-            <h4>Dean's Recognition — Top 50%</h4>
-            <p>Recognized by the Dean for outstanding academic performance and active contribution to extracurricular
-              activities at Lovely Professional University.</p>
+            <h4>S-1 Academic Rank — Top 11–50%</h4>
+            <p>Achieved S-1 category ranking, placing in the Top 11–50% for academic performance at Lovely Professional University.</p>
 
           </div>
         </div>
